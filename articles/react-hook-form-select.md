@@ -88,6 +88,7 @@ value に number の`1` を入れても`"1"`に変換されます。
 そのため、id は number型 で欲しいからといって zod で number型を指定してしまうとバリデーションがかかって form送信をすることができません。
 
 # 解決策
+
 Zod の [.tramsform](https://github.com/colinhacks/zod#transform) という機能を使えば、解析後にデータを変換できます。
 たとえば、以下のように書くと string で受け取った値を number に変更できます。
 

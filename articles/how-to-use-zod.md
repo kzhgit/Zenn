@@ -18,16 +18,18 @@ import { z } from "zod";
 
 // 文字列のスキーマを作成する
 const mySchema = z.string();
+// スキーマから型を生成する
 type MySchema = z.infer<typeof mySchema>
+/*
+  生成される型の中身
+  type MySchema = string
+*/
 
-const input: MySchema = 100;
-// TypeError (型 'number' を型 'string' に割り当てることはできません！)
-const input: MySchema = "abcd";
-// OK
+const input: MySchema = 100; // TypeError (型 'number' を型 'string' に割り当てることはできません！)
+const input: MySchema = "hello!"; // OK!
 ```
 
 `z.infer<typeof T>` とすることでスキーマから型を生成できます。
-上の例だと、`type MySchema = string` が生成されます。
 
 zod は form と組み合わせて使われることが多く、その場合は以下のようなオブジェクトのスキーマを定義します。
 
@@ -41,14 +43,14 @@ const user = z.object({
   email: z.string().email(),
 });
 type User = z.infer<typeof user>;
-```
-
-```ts:z.inferで生成される型
-type User = {
+/*
+  生成される型の中身
+  type User = {
     name: string;
     age: number;
     email: string;
-}
+  }
+*/
 ```
 
 そのほかの基本的な使い方は公式ページを見てください。
@@ -88,8 +90,10 @@ const postCode = z.string().regex(POST_CODE,"半角数字、ハイフン付き�
 ```ts
 const name = z.string().min(2).or(z.literal(""));
 type Name = z.infer<typeof name>;
-// ↓生成される型
-type Name = string;
+/*
+  生成される型の中身
+  type Name = string;
+*/
 ```
 
 上と似てますが `.optional()` だと `空の状態=""`になるので min(2)に引っかかり送信できません。
@@ -97,19 +101,35 @@ type Name = string;
 ```ts
 const name = z.string().min(2).optional();
 type Name = z.infer<typeof name>;
-// ↓生成される型
-type Name = string | undefined;
+/*
+  生成される型の中身
+  type Name = string | undefined;
+*/
 ```
 
 ## オブジェクトの中のオブジェクトも定義できる
 
 ```ts
-const UserSchema = z.object({
+const userSchema = z.object({
   name: z.string(),
-  task: z.object({
-    title: z.string(),
-  }),
+  blogs: z
+    .object({
+      title: z.string(),
+      body: z.string(),
+    })
+    .array(),
 });
+type UserSchema = z.infer<typeof userSchema>;
+/*
+  生成される型の中身
+  type UserSchema = {
+    name: string;
+    blogs: {
+        title: string;
+        body: string;
+    }[];
+}
+*/
 ```
 
 ## transform はオブジェクト自体も変えられる
@@ -129,14 +149,19 @@ const schema = z
     };
   });
 type User = z.infer<typeof schema>;
-
-// ↓生成される型
+/*
+生成される型の中身
 type User = {
-  fullName: string; // 追加されてる！
+  fullName: string; ←追加されてる
   lastName: string;
   firstName: string;
 };
+*/
 ```
+
+# おわりに
+
+今後も気になる点があれば追記していきたいと思います。
 
 # 参考記事
 

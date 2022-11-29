@@ -3,7 +3,7 @@ title: "具体例で学ぶZodの使い方"
 emoji: "💎"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["zod", "typescript"]
-published: false
+published: true
 ---
 
 # はじめに

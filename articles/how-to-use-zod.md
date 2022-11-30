@@ -93,6 +93,8 @@ type Name = z.infer<typeof name>;
 /*
   生成される型の中身
   type Name = string;
+  正確にはこんな感じ
+  type Name = 2文字以上のstring | ""
 */
 ```
 
@@ -104,6 +106,8 @@ type Name = z.infer<typeof name>;
 /*
   生成される型の中身
   type Name = string | undefined;
+  正確にはこんな感じ
+  type Name = 2文字以上のstring | undefined;
 */
 ```
 

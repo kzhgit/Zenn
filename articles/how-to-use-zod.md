@@ -8,7 +8,7 @@ published: true
 
 # はじめに
 
-基本的な使い方は公式ページや他の記事がわかりやすいのでサラッと書いてます。
+基本的な使い方は公式ページがわかりやすいのでサラッと書いてます。
 具体例は実際に Zod を使ってみて気になった部分を書きました。
 
 # 基本的な使い方
@@ -53,7 +53,7 @@ type User = z.infer<typeof user>;
 */
 ```
 
-そのほかの基本的な使い方は公式ページを見てください。
+そのほかの基本的な使い方は公式ページを参照してください。
 
 # 具体例を見てみよう
 
@@ -85,29 +85,34 @@ const postCode = z.string().regex(POST_CODE,"半角数字、ハイフン付き�
 
 ## 入力する場合はバリデーションが必要だけど、空のままでもいい
 
-入力するなら 2 文字以上の文字列だけど、入力せず空のままでもいいとき。
+例：fromのinput で、もし入力するなら 2 文字以上の文字列だけど入力せず空のままでもいいとき
 
 ```ts
-const name = z.string().min(2).or(z.literal(""));
-type Name = z.infer<typeof name>;
+const inputName = z.string().min(2).or(z.literal(""));
+type InputName = z.infer<typeof inputName>;
 /*
   生成される型の中身
-  type Name = string;
+  type InputName = string;
   正確にはこんな感じ
-  type Name = 2文字以上のstring | ""
+  type InputName = 2文字以上のstring | ""
 */
 ```
 
-上と似てますが `.optional()` だと `空の状態=""`になるので min(2)に引っかかり送信できません。
+:::message
+空の状態と似た意味（falsy な値）に`.optional()`で定義できる`undefined型`があります。
+ただ、基本的に input 要素が空の状態で form 送信されると中身は`""`になります。
+そのため、以下の書き方でinput要素を空にしてform送信しようとすると、 2 文字以下は許容されないという制約に引っかかるのでform送信ができません。
+`""`と`undefined`は別物ということです。
+:::
 
 ```ts
-const name = z.string().min(2).optional();
-type Name = z.infer<typeof name>;
+const inputName = z.string().min(2).optional();
+type InputName = z.infer<typeof inputName>;
 /*
   生成される型の中身
-  type Name = string | undefined;
+  type InputName = string | undefined;
   正確にはこんな感じ
-  type Name = 2文字以上のstring | undefined;
+  type InputName = 2文字以上のstring | undefined;
 */
 ```
 

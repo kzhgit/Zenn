@@ -76,7 +76,7 @@ function useState<S>(initialState: S | (() => S)): [S, Dispatch<SetStateAction<S
 
 つまり、以下のように書くと型エラーは消えます。
 
-```ts:index.ts
+```ts:index.tsx
 type Todo = {
   task: string;
   isDone: boolean;

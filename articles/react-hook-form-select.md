@@ -116,7 +116,7 @@ type User = z.infer<typeof schema>;
 ```
 
 ```ts:出力結果もnumberになる
-{name: "たろう", prefectureId: 1}
+{name: "北海道", prefectureId: 1}
 ```
 
 # どうすればよかったか

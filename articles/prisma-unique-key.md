@@ -3,7 +3,7 @@ title: 'Prismaで複合主キーを設定する'
 emoji: '🔑'
 type: 'tech' # tech: 技術記事 / idea: アイデア
 topics: ['prisma', 'db', 'typescript', 'nextjs']
-published: false
+published: true
 ---
 
 # 複合主キーとは

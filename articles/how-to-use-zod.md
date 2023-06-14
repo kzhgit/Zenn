@@ -168,6 +168,10 @@ type User = {
 */
 ```
 
+## ファイル(画像)のバリデーションもできる
+
+https://zenn.dev/kaz_z/articles/zod-image-file
+
 # おわりに
 
 今後も気になる点があれば追記していきたいと思います。

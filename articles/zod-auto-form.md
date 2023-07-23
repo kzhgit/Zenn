@@ -44,7 +44,7 @@ https://vantezzen.github.io/auto-form/
 npx shadcn-ui@latest init
 ```
 
-詳細 ↓
+詳細はこちら ↓
 https://ui.shadcn.com/docs/installation/next
 :::
 
@@ -76,7 +76,7 @@ import {
 # 基本的な使い方
 
 ```tsx:index.tsx
-// '/src'を@でエイリアスしているので適宜書き換えてください。
+// ※'/src'を@でエイリアスしています。
 import AutoForm, { AutoFormSubmit } from "@/components/ui/auto-form";
 import * as z from "zod";
 
@@ -363,7 +363,7 @@ export default function Home() {
 ![他のスタイルの例](/images/zod-auto-form/other-style.png)
 _こんな感じ_
 
-shadcn/ui の話になりますが、現状 DatePicker コンポーネントは年を選択する方法がなく、ひたすらポチポチするしかありません。（なのにドキュメントの例が誕生日なのはちょっと疑問🤔）
+shadcn/ui の話になりますが、現状 DatePicker コンポーネントは年を選択する方法がなく、ひたすらポチポチするしかありません。（なのにドキュメントの例が誕生日なのはちょっと疑問 🤔）
 
 ![DatePicker](/images/zod-auto-form/date-picker.png)
 _年の選択がない_

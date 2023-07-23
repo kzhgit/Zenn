@@ -1,25 +1,20 @@
 ---
-title: "Zodとshadcn/uiで簡単にフォーム作成ができるAutoFormの紹介"
+title: "Zodとshadcn/uiで簡単にフォーム作成ができる「AutoForm」"
 emoji: "🦊"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["zod", "typescript", "tailwindcss", "shadcn", "reacthookform"]
 published: false
 ---
 
-# はじめに
-
-フォームといえば Zod × React-Hook-Form の構成で作成することが多いのではないでしょうか。
-ただ、React-Hook-Form はできることが多いのでシンプルなフォームを作成したい時に機能を持て余してる感（？）がありました。
-今回紹介する AutoForm は シンプルなフォームを作成する時にもってこいのライブラリです。
-
 # AutoForm とは何か？
+
+https://github.com/vantezzen/auto-form
 
 READEME より ↓
 
-> AutoForm is a React component that automatically creates a @shadcn/ui form based on a zod schema. A live demo can be found at https://vantezzen.github.io/auto-form/.
-> 訳: AutoForm は、zod スキーマに基づいて@shadcn/ui フォームを自動的に作成する React コンポーネントです。ライブデモはhttps://vantezzen.github.io/auto-form/。
+> AutoForm は、zod スキーマに基づいて@shadcn/ui フォームを自動的に作成する React コンポーネントです。
 
-AutoForm は以下 3 つのライブラリを作られています。
+AutoForm は以下 3 つのライブラリを元に作られています。
 
 - フォームライブラリ **React Hook Form**
 - バリデーションライブラリ **Zod**
@@ -29,7 +24,8 @@ https://www.react-hook-form.com/
 https://zod.dev/
 https://ui.shadcn.com/
 
-以下のツイートを見てもらえれば分かると思いますが、シンプルで直感的な記述で簡単にフォーム作成ができています。
+実際の挙動は以下のツイートを見てもらえれば分かると思います。
+シンプルで直感的な記述でフォームを作成することが可能です。
 
 https://twitter.com/shadcn/status/1682458131002191872
 
@@ -37,6 +33,9 @@ https://twitter.com/shadcn/status/1682458131002191872
 https://vantezzen.github.io/auto-form/
 
 # AutoForm を試してみる
+
+それでは実際に AutoForm を試してみます。
+ドキュメントは GitHub の README に詳しく書かれています。
 
 :::message
 前提として shadcn/ui の設定(init)が必要です。
@@ -74,9 +73,7 @@ import {
 } from "react-hook-form";
 ```
 
-# 使い方
-
-## 基本形
+# 基本的な使い方
 
 ```tsx:index.tsx
 // '/src'を@でエイリアスしているので適宜書き換えてください。
@@ -91,7 +88,7 @@ export default function Home() {
         formSchema={z.object({
           name: z.string().min(3),
           pass: z.string().min(8),
-          terms: z.boolean(),
+          terms: z.literal(true),
         })}
         fieldConfig={{
           pass: {
@@ -115,15 +112,15 @@ export default function Home() {
 ![基本的なフォーム](/images/zod-auto-form/basic-used.png)
 _あっという間にフォームができました_
 
-## 各 props の紹介
+## 各プロップス
 
 ### formSchema
 
-zod を使ってフォームのスキーマを定義します。
-エラーメッセージ等カスタムするとコード量が多くなるので、基本的には変数で定義してから AutoForm に渡したほうが見やすいかと思います。
+Zod を使ってフォームのスキーマを定義します。
+エラーメッセージ等カスタムしてくとコード量が多くなるので、基本的には変数で定義してから AutoForm に渡したほうが見やすいかと思います。
 
 ```ts:index.tsx
-// .describe()でラベル名を設定することができます。
+// .describe()でラベルを設定することができます。
 // 未設定の場合はフィールド名がそのまま表示されます。
 const formSchema = z.object({
   name: z
@@ -142,7 +139,7 @@ const formSchema = z.object({
       message: "パスワードは8文字以上である必要があります。",
     })
     .describe("パスワード"),
-  terms: z.boolean().describe("利用規約に同意する"),
+  terms: z.literal(true).describe("利用規約に同意する"),
 });
 
 
@@ -197,12 +194,12 @@ export default function Home() {
           terms: {
             fieldType: "switch",
             description: (
-              <p className="text-gray-500 text-sm">
+              <>
                 こちらのリンクからご確認ください。{" "}
                 <a href="#" className="text-primary underline">
                   利用規約
                 </a>
-              </p>
+              </>
             ),
           },
         }}
@@ -217,10 +214,87 @@ export default function Home() {
 ![formConfigの紹介](/images/zod-auto-form/field-config.png)
 _プレースホルダや説明文のカスタムを確認できます。_
 
+## 補足
+
+上記の書き方だと、Console に以下の警告が出ます。
+
+> Warning: A component is changing an uncontrolled input to be controlled. This is likely caused by the value changing from undefined to a defined value, which should not happen.
+> Decide between using a controlled or uncontrolled input element for the lifetime of the component. More info: https://reactjs.org/link/controlled-components
+
+簡単に言うと、「入力値の管理方法が途中で変わっている」と指摘されています。
+これは初期値を設定することで回避できます。
+
+```tsx:index.tsx
+// .default()で初期値を設定する
+const formSchema = z.object({
+  name: z
+    .string({
+      required_error: "名前は必須です。",
+    })
+    .min(3, {
+      message: "名前は3文字以上である必要があります。",
+    })
+    .describe("名前")
+    .default(""),　　　 // 追加
+  pass: z
+    .string({
+      required_error: "パスワードは必須です。",
+    })
+    .min(8, {
+      message: "パスワードは8文字以上である必要があります。",
+    })
+    .describe("パスワード")
+    .default(""),　　　 // 追加
+  terms: z.literal(true).describe("利用規約に同意する"),
+});
+
+// required: true をつけて必須だと分かるようにする
+export default function Home() {
+  return (
+    <div className="max-w-lg mx-auto my-6 space-y-8">
+      <AutoForm
+        onSubmit={(data) => console.log(data)}
+        formSchema={formSchema}
+        fieldConfig={{
+          name: {
+            inputProps: {
+              required: true,　　　 // 追加
+            },
+          },
+          pass: {
+            inputProps: {
+              type: "password",
+              placeholder: "••••••••",
+              required: true,　　　 // 追加
+            },
+            description: "8文字以上で入力してください。",
+          },
+          terms: {
+            fieldType: "switch",
+            description: (
+              <>
+                こちらのリンクからご確認ください。{" "}
+                <a href="#" className="text-primary underline">
+                  利用規約
+                </a>
+              </>
+            ),
+          },
+        }}
+      >
+        <AutoFormSubmit>送信</AutoFormSubmit>
+      </AutoForm>
+    </div>
+  );
+}
+
+```
+
 # おわりに
 
 Tailwind CSS を使っているなら選択肢として結構ありだなと思います。
-Initial commit が 一昨日（2023/7/21）ということもあり今後どうなっていくか期待です！
+セレクトボックスや日付入力も簡単に導入できるのでぜひ触ってみてください。
+Initial commit が 最近（2023/7/21）ということもあり今後どうなっていくか期待です！
 
 # 参考
 

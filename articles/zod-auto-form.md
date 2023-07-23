@@ -1,5 +1,5 @@
 ---
-title: "Zodとshadcn/uiで簡単にフォーム作成ができる「AutoForm」"
+title: "Zodとshadcn/uiで超簡単にフォーム作成ができるライブラリ「AutoForm」"
 emoji: "🦊"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["zod", "typescript", "tailwindcss", "shadcn", "reacthookform"]
@@ -25,7 +25,7 @@ https://zod.dev/
 https://ui.shadcn.com/
 
 実際の挙動は以下のツイートを見てもらえれば分かると思います。
-シンプルで直感的な記述でフォームを作成することが可能です。
+シンプルで直感的な記述でフォーム作成をすることが可能です。
 
 https://twitter.com/shadcn/status/1682458131002191872
 
@@ -117,7 +117,7 @@ _あっという間にフォームができました_
 ### formSchema
 
 Zod を使ってフォームのスキーマを定義します。
-エラーメッセージ等カスタムしてくとコード量が多くなるので、基本的には変数で定義してから AutoForm に渡したほうが見やすいかと思います。
+エラーメッセージなど色々カスタムするとコード量が多くなるので、基本的には変数で定義してから AutoForm に渡したほうが見やすいかと思います。
 
 ```ts:index.tsx
 // .describe()でラベルを設定することができます。

@@ -18,7 +18,7 @@ AutoForm は以下 3 つのライブラリを元に作られています。
 
 - フォームライブラリ **React Hook Form**
 - バリデーションライブラリ **Zod**
-- Radix UI と Tailwind CSS を使用して構築された UI コンポーネント **shadcn/ui**
+- Radix UI と Tailwind CSS を使用して構築された UI コンポーネントライブラリ **shadcn/ui**
 
 https://www.react-hook-form.com/
 https://zod.dev/
@@ -336,11 +336,19 @@ export default function Home() {
             birthday: {
               description: "プレゼントを送るには誕生日が必要です。",
             },
-            bio: {
-              fieldType: "textarea",
+            color: {
+              inputProps: {
+                required: true,
+              },
             },
             marshmallows: {
               fieldType: "radio",
+              inputProps: {
+                required: true,
+              },
+            },
+            bio: {
+              fieldType: "textarea",
             },
           }}
         >
@@ -365,7 +373,7 @@ https://github.com/shadcn-ui/ui/issues/546
 
 # おわりに
 
-Tailwind CSS を使っているなら選択肢として結構ありだなと思います。
+Tailwind CSS を使っているなら選択肢として結構ありだと思いました。
 Initial commit が 最近（2023/7/21）ということもあり今後どうなっていくか期待です！
 
 # 参考

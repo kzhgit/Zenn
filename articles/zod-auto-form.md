@@ -56,7 +56,7 @@ AutoForm コンポーネントは shadcn/ui のコンポーネントと依存関
 npx shadcn-ui@latest add accordion button calendar card checkbox form input label popover radio-group select separator switch textarea toggle
 ```
 
-肝心の AutoForm に関しては GitHub から手動でコピーして持ってくる必要があります。
+肝心の AutoForm コンポーネントに関しては GitHub から手動でコピーして持ってくる必要があります。
 `auto-form.tsx` と `date-picker.tsx` を ダウンロードして、自分のプロジェクトの ui フォルダ(src/components/ui)に入れましょう。
 https://github.com/vantezzen/auto-form/tree/main/src/components/ui
 
@@ -82,7 +82,7 @@ import * as z from "zod";
 
 export default function Home() {
   return (
-    <div className="max-w-lg mx-auto my-6 space-y-8">
+    <div className="max-w-lg mx-auto my-6">
       <AutoForm
         onSubmit={(data) => console.log(data)}
         formSchema={z.object({
@@ -145,7 +145,7 @@ const formSchema = z.object({
 
 export default function Home() {
   return (
-    <div className="max-w-lg mx-auto my-6 space-y-8">
+    <div className="max-w-lg mx-auto my-6">
       <AutoForm
         onSubmit={(data) => console.log(data)}
         formSchema={formSchema}
@@ -179,7 +179,7 @@ _バリデーションとエラーメッセージが効いているのが確認�
 // descriptionはjsx形式で書くことが可能です。
 export default function Home() {
   return (
-    <div className="max-w-lg mx-auto my-6 space-y-8">
+    <div className="max-w-lg mx-auto my-6">
       <AutoForm
         onSubmit={(data) => console.log(data)}
         formSchema={formSchema}
@@ -251,7 +251,7 @@ const formSchema = z.object({
 // required: true をつけて必須だと分かるようにする
 export default function Home() {
   return (
-    <div className="max-w-lg mx-auto my-6 space-y-8">
+    <div className="max-w-lg mx-auto my-6">
       <AutoForm
         onSubmit={(data) => console.log(data)}
         formSchema={formSchema}
@@ -287,13 +287,85 @@ export default function Home() {
     </div>
   );
 }
-
 ```
+
+# 他のスタイル例
+
+```tsx:index.tsx
+// プレースホルダなど一部 shadcn/ui（src/components/ui） コンポーネントをカスタムしています。
+const formSchema = z.object({
+  birthday: z.coerce.date().optional().describe("誕生日"),
+  color: z
+    .enum(["赤", "緑", "青"], {
+      required_error: "選択してください。",
+    })
+    .describe("色"),
+  marshmallows: z
+    .enum(
+      [
+        "少ない: 1-5個",
+        "普通: 6-10個",
+        "多い: 11-15個",
+        "とても多い: 16個以上",
+      ],
+      {
+        required_error: "選択してください。",
+      }
+    )
+    .describe("口に入るマシュマロの数は？"),
+  bio: z
+    .string()
+    .min(10, {
+      message: "10文字以上で入力してください。",
+    })
+    .max(150, {
+      message: "150文字以内で入力してください。",
+    })
+    .optional()
+    .describe("経歴"),
+});
+
+export default function Home() {
+  return (
+    <>
+      <div className="max-w-lg mx-auto my-6">
+        <AutoForm
+          onSubmit={(data) => console.log(data)}
+          formSchema={formSchema}
+          fieldConfig={{
+            birthday: {
+              description: "プレゼントを送るには誕生日が必要です。",
+            },
+            bio: {
+              fieldType: "textarea",
+            },
+            marshmallows: {
+              fieldType: "radio",
+            },
+          }}
+        >
+          <AutoFormSubmit>送信</AutoFormSubmit>
+        </AutoForm>
+      </div>
+    </>
+  );
+}
+```
+
+![他のスタイルの例](/images/zod-auto-form/other-style.png)
+_こんな感じ_
+
+shadcn/ui の話になりますが、現状 DatePicker コンポーネントは年を選択する方法がなく、ひたすらポチポチするしかありません。（なのにドキュメントの例が誕生日なのはちょっと疑問）
+
+![DatePicker](/images/zod-auto-form/date-picker.png)
+_年の選択がない_
+
+一応 Issue はあったので自分でカスタムするかアップデートを待ちましょう。
+https://github.com/shadcn-ui/ui/issues/546
 
 # おわりに
 
 Tailwind CSS を使っているなら選択肢として結構ありだなと思います。
-セレクトボックスや日付入力も簡単に導入できるのでぜひ触ってみてください。
 Initial commit が 最近（2023/7/21）ということもあり今後どうなっていくか期待です！
 
 # 参考

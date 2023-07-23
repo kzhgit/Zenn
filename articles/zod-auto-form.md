@@ -10,7 +10,7 @@ published: false
 
 https://github.com/vantezzen/auto-form
 
-READEME より ↓
+README より ↓
 
 > AutoForm は、zod スキーマに基づいて@shadcn/ui フォームを自動的に作成する React コンポーネントです。
 
@@ -363,7 +363,7 @@ export default function Home() {
 ![他のスタイルの例](/images/zod-auto-form/other-style.png)
 _こんな感じ_
 
-shadcn/ui の話になりますが、現状 DatePicker コンポーネントは年を選択する方法がなく、ひたすらポチポチするしかありません。（なのにドキュメントの例が誕生日なのはちょっと疑問）
+shadcn/ui の話になりますが、現状 DatePicker コンポーネントは年を選択する方法がなく、ひたすらポチポチするしかありません。（なのにドキュメントの例が誕生日なのはちょっと疑問🤔）
 
 ![DatePicker](/images/zod-auto-form/date-picker.png)
 _年の選択がない_

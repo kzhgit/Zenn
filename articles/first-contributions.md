@@ -3,7 +3,8 @@ title: "これで君もOSSコントリビューター！"
 emoji: "🔰"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["oss"]
-published: false
+published: true
+published_at: 2024-01-08 07:00
 ---
 
 # はじめに
@@ -12,7 +13,7 @@ published: false
 初めてのコントリビュート系の記事はすでに先人たちが書かれていたので本記事を書こうか迷ったのですが、誰かのきっかけになればいいと思い書くことにしました。
 🍼👦🏻 > こんなんなんぼあってもいいですからね！
 
-OSSコントリビュートを始めたい方の最初のステップとして参考になれば幸いです 🙏
+OSSコントリビュートを始めたい方の最初のステップとして参考になれば幸いです🙏
 
 ## 対象読者
 
@@ -24,7 +25,7 @@ https://github.com/firstcontributions/first-contributions
 
 このリポジトリは、初心者がオープンソースプロジェクトに貢献する方法を簡単に学ぶことを目的としています。
 現時点（2024/01/07）で、Fork 数が**70.3k**と非常に人気なのが分かりますね。
-各言語の README が用意されており、もちろん[日本語 🇯🇵](https://github.com/firstcontributions/first-contributions/blob/main/translations/README.ja.md)での説明もあります。
+各言語の README が用意されており、もちろん[日本語🇯🇵](https://github.com/firstcontributions/first-contributions/blob/main/translations/README.ja.md)での説明もあります。
 
 では、実際に README の手順に沿ってやってみましょう。
 :::message
@@ -41,7 +42,7 @@ _右上の「Fork」を選択します_
 ![リポジトリをフォークする2](/images/first-contributions/fork-step2.png)
 _右下の「Create fork」を選択します_
 
-すると自分の GitHub アカウントに first-contributions リポジトリがフォークされました 🎉
+すると自分の GitHub アカウントに first-contributions リポジトリがフォークされました🎉
 ![リポジトリをフォークする3](/images/first-contributions/fork-step3.png)
 
 ## 2. リポジトリをクローンする
@@ -134,7 +135,7 @@ _右下の「Create pull request」を選択_
 ## 7. マージされる 🎉
 
 数分待つと自動でマージされました！
-これでOSSコントリビューターの第一歩を踏み出せましたね 😎
+これでOSSコントリビューターの第一歩を踏み出せましたね😎
 
 ![マージされた](/images/first-contributions/merge.png)
 
@@ -160,7 +161,7 @@ https://github.com/zenn-dev/zenn-community
 本記事を書いている時、過去に issue をあげたことがあるのを思い出しました。
 https://github.com/zenn-dev/zenn-community/issues/527
 
-このように、まずは普段使っているサービスやコミュニティにバグ報告や機能追加の提案リクエストをしてみることから始めても良いのではないでしょうか？
+このように、まずは普段使っているサービスやコミュニティにバグ報告や機能追加の提案をしてみることから始めても良いのではないでしょうか？
 
 # 参考
 

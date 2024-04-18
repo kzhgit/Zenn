@@ -9,8 +9,29 @@ published: true
 # 結論
 
 ```ts:基本形
+const IMAGE_TYPES = ['image/jpg', 'image/png'];
+const MAX_IMAGE_SIZE = 5; // 5MB
+
+// バイト単位のサイズをメガバイト単位に変換する
+const sizeInMB = (sizeInBytes: number, decimalsNum = 2) => {
+  const result = sizeInBytes / (1024 * 1024);
+  return +result.toFixed(decimalsNum);
+};
+
 const schema = z.object({
-  file: z.custom<FileList>().transform((file) => file[0]),
+  file: z
+    // z.inferでSchemaを定義したときに型がつくようにするため
+    .custom<FileList>()
+    // 必須にしたい場合
+    .refine((file) => file.length !== 0, { message: '必須です' })
+    // このあとのrefine()で扱いやすくするために整形
+    .transform((file) => file[0])
+     // ファイルサイズを制限したい場合
+    .refine((file) => sizeInMB(file.size) <= MAX_IMAGE_SIZE, { message: 'ファイルサイズは最大5MBです' })
+    // 画像形式を制限したい場合
+    .refine((file) => IMAGE_TYPES.includes(file.type), {
+      message: '.jpgもしくは.pngのみ可能です',
+    }),
 });
 
 type Schema = z.infer<typeof schema>;
@@ -20,6 +41,61 @@ type Schema = z.infer<typeof schema>;
   }
 */
 ```
+
+:::details React Hook Formと組み合わせた例
+```tsx
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+
+const IMAGE_TYPES = ["image/png", "image/jpg"];
+const MAX_IMAGE_SIZE = 5;
+
+const sizeInMB = (sizeInBytes: number, decimalsNum = 2) => {
+  const result = sizeInBytes / (1024 * 1024);
+  return +result.toFixed(decimalsNum);
+};
+
+const schema = z.object({
+  image: z
+    .custom<FileList>()
+    .refine((file) => file.length !== 0, { message: "必須です" })
+    .transform((file) => file[0])
+    .refine((file) => sizeInMB(file.size) <= MAX_IMAGE_SIZE, {
+      message: "ファイルサイズは最大5MBです",
+    })
+    .refine((file) => IMAGE_TYPES.includes(file.type), {
+      message: ".jpgもしくは.pngのみ可能です",
+    }),
+});
+type Schema = z.infer<typeof schema>;
+
+const SamplePage = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<Schema>({
+    resolver: zodResolver(schema),
+  });
+
+  return (
+    <form
+      onSubmit={handleSubmit((data) => console.log(data))}
+      className="p-[100px] bg-gray-400"
+    >
+      <input type="file" {...register("image")} accept="image/*" />
+      {errors.image?.message && <p>{errors.image?.message}</p>}
+      <br />
+      <input type="submit" />
+    </form>
+  );
+};
+
+export default SamplePage;
+```
+:::
+
 
 # 解説
 
@@ -119,25 +195,34 @@ type Schema2 = z.infer<typeof schema>;
 
 https://developer.mozilla.org/ja/docs/Web/API/FileList
 
-# もっと拡張したい場合
+
+## `.refine()`
+
+https://zod.dev/?id=refine
 
 `.refine`を使うことで任意のバリデーションを設定できます。
 条件が`false`の際にバリデーションが効いてメッセージを出力できます。
 
-```ts
-const IMAGE_TYPES = ['image/jpeg', 'image/png'];
 
-const schema = z.object({
-  file: z
-    .custom<FileList>()
-    .refine((file) => file.length !== 0, { message: '必須です' })
-    .transform((file) => file[0])
-    .refine((file) => file.size < 500000, { message: 'ファイルサイズは最大5MBです' })
-    .refine((file) => IMAGE_TYPES.includes(file.type), {
-      message: '.jpgもしくは.pngのみ可能です',
-    }),
-});
+# （補足）HTMLでも多少の制御はできる
+https://developer.mozilla.org/ja/docs/Web/HTML/Attributes/accept
+
+例えばファイル選択を画像ファイルだけに制限したい場合、以下のように`accept属性`を指定することで、ユーザーのファイル選択を画像ファイルのみに絞らせることができます。
+
+```html
+<input type="file" accept="image/*" />
 ```
+
+![accept属性をつけていない場合](/images/zod-image-file/all.png)
+_accept属性を書いていない場合_
+
+![accept属性をつけている場合](/images/zod-image-file/select.png)
+_accept="image/*"を記述している場合_
+
+
+> accept 属性は、選択されたファイルの種別を検証するものではありません。これはブラウザーがユーザーに対して正しいファイル種別を選択できるようにするためのガイドをするためのヒントを提供するだけです。ユーザーがファイルセレクターのオプションを切り替え、これを上書きして任意のファイルを選択し、不正なファイル種別を選択することは (ほとんどの場合) 可能です。このため、期待される要件をサーバー側で検証するようにしてください。
+
+ただ、MDNにも書いてあるようにフロント側でのバリデーションは補助的なものと捉え、あくまでサーバー側で検証をすることが必要です。
 
 # 参考
 

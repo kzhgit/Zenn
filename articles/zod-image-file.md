@@ -8,7 +8,7 @@ published: true
 
 # 結論
 
-```ts:基本形
+```tsx
 const IMAGE_TYPES = ['image/jpg', 'image/png'];
 const MAX_IMAGE_SIZE = 5; // 5MB
 

@@ -39,7 +39,7 @@ ApexCharts では以下の種類からチャートタイプを指定すること
 - treemap
 
 https://apexcharts.com/docs/options/chart/type/
-それぞれがどのように表示されるかは詳細は [ApexCharts のデモページ](https://apexcharts.com/javascript-chart-demos/)で確認できます。
+それぞれがどのように表示されるかの詳細は [ApexCharts のデモページ](https://apexcharts.com/javascript-chart-demos/)で確認できます。
 
 # 通常時の表示結果
 
@@ -123,7 +123,7 @@ https://apexcharts.com/docs/options/stroke/
 役割としては、グラフの線や境界線に関連するスタイリングの設定を行うために使用されます。
 このオプションを利用することで、線の幅、色、線の種類（点線など）、曲線の滑らかさなどをカスタマイズできます。
 
-今回は `width`プロパティを設定してグラフの線の太さを出すことで、要素の境界線が強調され、**実際には高さや幅が 0 でも視覚的には線として表示することができます。**
+今回は `width`プロパティを設定してグラフの線の太さを出すことで、要素の境界線が強調され、**実際には高さや幅が 0 でも視覚的には線として表示されるように**しています。
 
 ```tsx
 const options = {

@@ -43,7 +43,7 @@ https://apexcharts.com/docs/options/chart/type/
 
 # 通常時の表示結果
 
-今回は`rangeBar`という、**値の範囲を視覚的に表現するのに適してるもの**を選択しました。
+今回は[rangeBar](https://apexcharts.com/react-chart-demos/timeline-charts/basic/)という、**値の範囲を視覚的に表現するのに適してるもの**を選択しました。
 `rangeBar`グラフを表示したい場合は以下のように書きます。
 
 ```tsx:Chart.tsx

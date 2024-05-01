@@ -1,9 +1,9 @@
 ---
-title: "ApexChartsのrangeBarで値が同じでも表示させる方法"
+title: "ApexChartsのrangeBarで値が同じでもグラフを表示させる方法"
 emoji: "📊"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["apexcharts", "react", "nextjs"]
-published: false
+published: true
 ---
 
 # ApexCharts とは？
@@ -17,7 +17,7 @@ ApexCharts は、以下のような特徴を持つ JavaScript チャートライ
 
 https://apexcharts.com/
 
-## いろいろなチャートタイプで表示が可能
+## いろいろなチャートタイプで表示可能
 
 ApexCharts では以下の種類からチャートタイプを指定することができます。
 
@@ -44,7 +44,7 @@ https://apexcharts.com/docs/options/chart/type/
 # 通常時の表示結果
 
 今回は`rangeBar`という、**値の範囲を視覚的に表現するのに適してるもの**を選択しました。
-`rangeBar`グラフを表示したい場合は以下のように定義します。
+`rangeBar`グラフを表示したい場合は以下のように書きます。
 
 ```tsx:Chart.tsx
 import ReactApexChart from "react-apexcharts";

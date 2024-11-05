@@ -373,7 +373,7 @@ export const SleepChart = () => {
 軸の目盛りのフォーマットを自由に行える`tickFormatter`を使います。
 https://recharts.org/en-US/api/YAxis#tickFormatter
 
-睡眠状態と文言が合うように記述します。
+睡眠状態と文言が合うように書きます。
 
 ```tsx:SleepChart.tsx
 <YAxis
@@ -420,7 +420,7 @@ https://recharts.org/en-US/api/XAxis#ticks
 
 ## STEP4. ツールチップを整える
 
-デフォルトではツールチップにデータがそのまま表示されるのでY軸と同じように変更します。
+デフォルトではデータがそのまま表示されるので、睡眠状態が分かるように変更します。
 
 ![睡眠グラフ](/images/recharts-sleep/step4-before.gif)_変更前_
 
@@ -465,7 +465,7 @@ https://recharts.org/en-US/api/Tooltip#formatter
   />
 ```
 
-![睡眠グラフ](/images/recharts-sleep/step5-dot-false.png)_ドットが非表示に_
+![睡眠グラフ](/images/recharts-sleep/step5-dot-false.png)_ドットを非表示にした_
 
 ### labelを設定する（中身をみる）
 
@@ -477,7 +477,7 @@ https://recharts.org/en-US/api/Tooltip#formatter
 
 https://recharts.org/en-US/api/Line#label
 
-```tsx:例
+```tsx:labelの例
 <Line dataKey="value" label />
 <Line dataKey="value" label={{ fill: 'red', fontSize: 20 }} />
 <Line dataKey="value" label={<CustomizedLabel />} />
@@ -613,13 +613,13 @@ https://developer.mozilla.org/ja/docs/Web/SVG/Element/rect
 />
 ```
 
-![睡眠グラフ](/images/recharts-sleep/step5-dot-rect-color.png)_色が変化_
+![睡眠グラフ](/images/recharts-sleep/step5-dot-rect-color.png)_色を変化させた_
 
 #### 座標と大きさを調整する
 
 今はラベルとラベルの間に隙間があるので、この隙間が埋まるくらいに`width`を調整します。
 `height`もいい感じの大きさに調整します。
-また、表示位置を中央に合わせるために`x`と`y`からそれぞれ`width`と`height`の大きさを引いておきましょう。
+また、表示位置を中央に合わせるために`x`と`y`からそれぞれ`width`と`height`の半分の大きさを引いておきましょう。
 
 ```tsx:SleepChart.tsx
 <Line
@@ -737,4 +737,4 @@ const CustomizedLabel = ({ dataLength, index, value, x, y }: CustomizedLabelProp
 
 # おわりに
 
-表現の仕方によっては今回紹介した以外の作り方もあると思うので、違うパターンで作ったときはぜひ教えていただきたいです。
+表現の仕方によっては今回紹介した以外の作り方もあると思うので、違うパターンで作ったときはぜひ教えていただきたいです！

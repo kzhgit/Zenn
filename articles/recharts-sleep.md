@@ -3,7 +3,7 @@ title: "Rechartsで睡眠グラフを作成する"
 emoji: "😪"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["recharts", "react", "typescript"]
-published: false
+published: true
 ---
 
 # はじめに
@@ -28,8 +28,6 @@ _左から「ヘルスケア」、「MOTHER」、「Oura Ring」_
 - 深い睡眠
 
 ## 最終的に完成するもの
-
-
 
 ![睡眠グラフ](/images/recharts-sleep/final.png)
 

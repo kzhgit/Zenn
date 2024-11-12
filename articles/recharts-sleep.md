@@ -2,7 +2,7 @@
 title: "Rechartsで睡眠グラフを作成する"
 emoji: "😪"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: ["recharts", "react", "typescript"]
+topics: ["recharts", "react", "typescript", "contest2024"]
 published: true
 ---
 

@@ -1,9 +1,9 @@
 ---
 title: "next-i18nextを導入したが本番環境だけエラーになる"
-emoji: "🗺️"
+emoji: "🌏"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["i18n", "i18next", "nextjs"]
-published: false
+published: true
 ---
 
 # はじめに
@@ -24,7 +24,7 @@ published: false
 
 ローカルでは正常に動くのに、開発環境や本番環境だと404エラーや500エラーが発生する問題が発生しました。  
 
-また、Sentryでは以下のエラーを検知しました：  
+また、Sentryでは以下のエラーを検知しました：
 https://github.com/i18next/next-i18next/issues/1091
 
 # どうやって解決したか

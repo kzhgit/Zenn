@@ -57,21 +57,69 @@ https://docs.github.com/ja/repositories/releasing-projects-on-github/managing-re
 
 リリースノートを調査する際には、いくつかのポイントを意識して調べました。
 
-- **構成の違い**
-リリースノートの構成がどのように整理されているかを比較しました。例えば、変更内容がどれだけ詳しく書かれているのか、どの情報が最初に目に入るようになっているのか、といった点に注目しました。
+- **構成の特徴**
+リリースノートの構成がどのように整理されているかを調査しました。例えば、変更内容がどれだけ詳しく書かれているのか、どの情報が最初に目に入るようになっているのか、といった点に注目しました。
 
-- **ターゲット読者**
-リリースノートは誰に向けて書かれているのかという点も重視しました。これは、リリース情報をGitHub Releasesとは別の場所でまとめているプロジェクトもあり、ターゲットとなる読者によって書かれ方が異なるためです。
+- **GitHub Releasesの位置づけ**
+プロジェクト内でGitHub Releasesがどのような役割を担っているのかを見ました。例えば、GitHub Releasesが補足的な位置づけなのか、公式サイトからも案内されている主要な情報源なのか、といった違いです。これによって、リリースノートの扱われ方や重要度がプロジェクトごとにどう異なるかが見えてきます。
 
-- **Github Actionsの活用**
+- **Github Actionsの活用（これを含めると調査がめっちゃ大変なので省こうかな...）**
 どのようにGitHub Actionsを活用しているかも調査しました。具体的には、リリースノートが自動的に生成される仕組みや、リリース作業の一部として統合されているかに注目しました。
 
 これらの視点を元に、それぞれのプロジェクトのリリースノートがどのような特徴を持っているのかを深掘りしていきます。
 
 # 各プロジェクトのリリースノートまとめ
 
-## TypeScript
-
 ## React
 
-## Next.js
+### 構成の特徴
+
+Reactのリリースノートは、機能ごとのカテゴリと、モジュール単位での分類を組み合わせた構成が特徴です。
+特にメジャーアップデートでは、「New Features」「Breaking Changes」「Deprecations」といったカテゴリごとに情報が分けられ、その中で「React」「React DOM」「React DOM Server」などのモジュール単位の小見出しで整理されています。
+
+パッチやマイナーアップデートでは、各PRのタイトルがそのまま箇条書きで並べられるシンプルな形式です。一方で、メジャーアップデートでは概要や背景説明を含んだ、より丁寧な記述となっており、詳細な解説は公式ブログやアップグレードガイドへ誘導するスタイルになっています。
+
+### GitHub Releasesの位置づけ
+
+Reactのリリース情報は、主に以下の3つの場所で提供されています。
+
+#### 1. GitHub Releases
+
+https://github.com/facebook/react/releases
+
+#### 2. CHANGELOG.md
+
+https://github.com/facebook/react/blob/main/CHANGELOG.md
+
+GitHub Releasesとは別にCHANGELOG.mdがある理由については、[RemixのCHANGELOG.md](https://github.com/remix-run/remix/blob/main/CHANGELOG.md#remix-releases)でされていた説明がしっくりきたので紹介します。（Reactも同じ理由かは分かりませんが...）
+
+> We manage release notes in this file instead of the paginated Github Releases Page for 2 reasons:
+> - Pagination in the Github UI means that you cannot easily search release notes for a large span of releases at once
+> - The paginated Github interface also cuts off longer releases notes without indication in list view, and you need to click into the detail view to see the full set of release notes
+
+（和訳↓）
+> 私たちは2つの理由から、ページ分割されたGithub Releases Pageの代わりにこのファイルでリリースノートを管理しています：
+> - Github UIのページネーションでは、一度に多くのリリースのリリースノートを簡単に検索することができません。
+> - ページ分割されたGithubのインターフェイスでは、長いリリースノートはリストビューでは表示されずに切り捨てられ、リリースノートの全セットを見るには詳細ビューをクリックする必要があります。
+
+そのため、基本的には**CHANGELOG.mdが中心的な情報源**として管理されているように思えます。それに対しGitHub Releasesは、通知機能やリアクション、コメントなど、周辺機能の利便性もあることから、**外部向けに公開される「発表の場」** として活用されている印象でした。
+
+#### 3. 公式サイト（Versionsページ）
+
+https://react.dev/versions
+
+一方で公式サイト（React.dev）は、各メジャーバージョン（例：React 18、19）の概要や機能、アップグレードガイドを掲載する**ナビゲーション的な位置づけ**です。リリースノートで説明するにはちょっと長すぎるような、具体的なコードを交えての解説がブログ形式で紹介されています。
+
+### 所感とまとめ
+
+Reactでは、リリース情報を以下の3つの情報源に分けて提供することで、
+
+- 変更の一覧性（CHANGELOG.md）
+- 通知・配布の即時性（GitHub Releases）
+- 概要と文脈の理解（公式サイト）
+
+といった目的ごとに役割を明確にし、それぞれに最適な形で情報を届けている印象を受けました。
+
+また、「カテゴリ → モジュール単位」で整理するリリースノートの構成は、変更点が把握しやすく、自分のプロジェクトでも取り入れやすいスタイルだと感じました。
+シンプルながらも読み手にとって親切な設計で、丁寧な情報提供の好例と言えるのではないでしょうか。
+

@@ -96,7 +96,7 @@ https://github.com/facebook/react/releases
 
 https://github.com/facebook/react/blob/main/CHANGELOG.md
 
-GitHub Releasesとは別にCHANGELOG.mdがある理由については、[RemixのCHANGELOG.md](https://github.com/remix-run/remix/blob/main/CHANGELOG.md#remix-releases)でされていた説明がしっくりきたので紹介します。（Reactも同じ理由かは分かりませんが...）
+GitHub Releasesとは別にCHANGELOG.mdがある理由については、[Remixのリポジトリ](https://github.com/remix-run/remix/blob/main/CHANGELOG.md#remix-releases)や[React Routerの公式サイト](https://reactrouter.com/changelog)でされていた説明がしっくりきたので紹介します。（Reactも同じ理由かは分かりませんが...）
 
 > We manage release notes in this file instead of the paginated Github Releases Page for 2 reasons:
 > - Pagination in the Github UI means that you cannot easily search release notes for a large span of releases at once
@@ -128,4 +128,49 @@ Reactでは、リリース情報を以下の3つの情報源に分けて提供�
 また、「カテゴリ → モジュール単位」で整理するリリースノートの構成は、変更点が把握しやすく、自分のプロジェクトでも取り入れやすいスタイルだと感じました。
 シンプルながらも読み手にとって親切な設計で、丁寧な情報提供の好例と言えるのではないでしょうか。
 
-## Remix
+## Remix & React Router
+
+RemixとReact Routerは、同じ開発チームによってメンテナンスされていることもあり、リリースノートの構成やスタイルにも一貫性がありました。そのため、このパートでは2つまとめて紹介します。
+
+![RemixのGitHub Releases](/images/github-release-notes/remix_github.png)
+*RemixのGitHub Releases*
+
+![React RouterのGitHub Releases](/images/github-release-notes/react_router_github.png)
+*React RouterのGitHub Releases*
+
+### 構成の特徴
+
+どちらのプロジェクトも、リポジトリ直下にある `CHANGELOG.md` にリリース情報をまとめており、バージョン番号と日付の見出しごとに時系列で整理されています。
+
+変更内容は、「Patch Changes」「Minor Changes」「Breaking Changes」といった**変更の種類に応じたカテゴリ**に分けられ、それぞれの項目が簡潔に箇条書きで記述されています。
+
+さらに、複雑な変更や仕様の補足が必要な箇所には、箇条書きの中で段落を変える形で簡単な背景説明や移行ガイドが記載されていることもあります。
+
+また、各エントリの末尾に「Changes by Package」というセクションが用意されており、どのパッケージにどんな変更があったのかが一覧で把握できるようになっている点も特徴的です。
+
+なお、React Routerの[公式サイトのリリース情報](https://reactrouter.com/changelog)も、内容はCHANGELOG.mdのものがそのまま掲載されており、主要な情報源として位置づけられていることがわかります。
+
+### GitHub Releasesの位置づけ
+
+両プロジェクトとも、GitHub Releasesは**CHANGELOG.mdへのリンクを提供する場**として活用されています。
+
+リリースノートの本文には「See the changelog for the release notes.」といった一文と該当バージョンへのリンクのみが記載されており、変更点の詳細はそちらを参照する形になっています。
+
+ちなみに、この運用スタイルはRemixでは`v2.3.0`以降、React Routerでは`v6.19.0`以降から始まっていました。
+
+### 所感とまとめ
+
+RemixとReact Routerのリリースノートは、情報の種類ごとに丁寧に整理されており、ユーザーが必要な情報にすばやくアクセスしやすい構成が特徴的でした。
+
+- 変更内容のカテゴリ分け（Patch, Minor, Breakingなど）
+- PRやIssueへのリンクが併記されており、変更の背景が追いやすい
+- 背景説明や移行ガイドの補足
+- 複数パッケージの変更をまとめる「Changes by Package」セクション
+
+といった工夫により、リリースの意図や影響範囲が把握しやすくなっています。
+
+また、GitHub ReleasesとCHANGELOGの役割を明確に分離し、すべての情報をCHANGELOG.mdに集約する方針も印象的でした。
+
+Reactのように情報源が複数に分かれているスタイルとはまた違った、統一感と集中管理を重視した運用スタイルとして、参考になる点が多いリリースノートだと感じました。
+
+## Next.js

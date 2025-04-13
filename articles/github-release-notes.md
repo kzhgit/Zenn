@@ -174,3 +174,69 @@ RemixとReact Routerのリリースノートは、情報の種類ごとに丁寧
 Reactのように情報源が複数に分かれているスタイルとはまた違った、統一感と集中管理を重視した運用スタイルとして、参考になる点が多いリリースノートだと感じました。
 
 ## Next.js
+
+![Next.jsのGitHub Releases](/images/github-release-notes/next_github.png)
+*Next.jsのGitHub Releases（※直近のv15.3.0は長すぎたのでcanaryを貼ります。）*
+
+### 構成の特徴
+
+Next.jsのリリース情報は、GitHub Releasesが主要な発信源となっており、全体をまとめたCHANGELOG.mdは存在していません。
+
+各リリースでは、以下のようなカテゴリごとに変更内容がまとめられています。
+
+- Core Changes
+- Documentation Changes
+- Example Changes
+- Misc Changes
+
+それぞれのセクションでは、各変更がPRのタイトル単位で箇条書きされており、対応するPR番号へのリンクも付けられています。
+また、各リリースの末尾には **貢献者への謝辞（Credits）** も添えられており、コミュニティへの敬意が感じられる点も特徴的です。
+
+Next.js特有のリリースとして、canary版（開発版）が存在し、こちらもGitHub Releasesにプレリリースとして一覧表示されています。canaryはPRマージのたびにリリースされる形式で、更新頻度は非常に高く、細かな変更の追跡が可能です。
+
+Canary Releasesについては以下のディスカッションで確認できます。
+
+https://github.com/vercel/next.js/discussions/36898
+
+> canary versions are released pretty much after every merge into main and often after only few hours.
+> Multiple canaries can be created on the same day, making it sort of "nightlies".
+
+（和訳↓）
+> カナリアバージョンは、メインにマージされるたびにリリースされる。
+> 同じ日に複数のカナリアが作成されることもあり、一種の「ナイトリー」となっている。
+
+なお、このディスカッションは2022年5月時点のものであり、現在は `canary` ブランチがデフォルトブランチとして設定されています。
+
+### GitHub Releasesの位置づけ
+
+Next.jsでは、**GitHub Releasesと公式ブログの二本立てでリリース情報を提供するスタイル**が取られています。
+
+GitHub Releasesでは、すべてのバージョンの変更内容がPR単位で整理されています。canary版（開発版）も含めて、細かな修正や内部的な改善までしっかり記録されているため、実質的にはCHANGELOGとしての役割も果たしています。
+
+一方で、[Next.jsの公式ブログ(ニュース)](https://nextjs.org/blog)では、メジャーアップデートや注目度の高いマイナーリリースを中心に、新機能や改善点が紹介されています。ブログでは、変更の背景や意図に触れながらわかりやすく解説されており、**全体像を把握したいときに役立つ内容**になっています。
+
+ただし、ブログではすべての変更が取り上げられているわけではなく、またGitHub Releasesも安定版とcanary版が同列に並んでいるため、**細かい変更点や安定版だけの情報を確認したいときには、やや探しづらさを感じる場面もあります。**
+
+この点については、GitHub Discussionsでも「Reactのように安定版の変更だけを確認できるページがほしい」といった声が挙がっていました。
+
+https://github.com/vercel/next.js/discussions/65212
+
+そうした声を受けて、安定版のリリースノートだけを自動で集約する**非公式のまとめサイト**も公開されています。
+
+https://nextjs-changelog.vercel.app/
+
+### 所感とまとめ
+
+Next.jsのリリースノートは、**GitHub Releasesを中⼼に構成された、実用性の高いスタイル**が印象的でした。
+
+- PRベースのシンプルなリスト形式
+- カテゴリ別の整理（Core, Docs, Example, Misc）
+- 貢献者への謝辞の掲載
+- 開発版（canary）も含めた頻繁なリリースの可視化
+
+といったポイントからも、**最新の変更を素早く確認できる実践的な構成**が意識されていると感じます。
+
+一方で、GitHub Releasesと公式ブログで役割を分担しつつも、安定版とcanary版が同列に並ぶ構成や、すべての変更点を一元的に見渡せるページがない点には、やや不便さを感じる場面もあるかもしれません。
+
+全体として、Next.jsは高速な開発サイクルを支える運用に最適化されたリリーススタイルを取っており、**プロダクトの成長スピードに合わせた合理的な構成**として、非常に参考になる事例だと感じました。
+

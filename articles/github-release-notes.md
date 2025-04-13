@@ -1,8 +1,8 @@
 ---
-title: "【GitHub Releasesの書き方まとめ】人気OSSはどう書いている？"
-emoji: "🎯"
+title: "React・Remix・Next.jsから学ぶGitHub Releasesの整理術"
+emoji: "🔮"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: ["github", "githubactions", "ci", "yaml"]
+topics: ["github", "githubactions", "oss"]
 published: false
 ---
 
@@ -51,7 +51,16 @@ https://docs.github.com/ja/repositories/releasing-projects-on-github/managing-re
 
 ## プロジェクト選定
 
-リリースノートの特徴を把握するために、いくつかのプロジェクトを選んでみました。今回は**筆者が普段使っているものや興味があるもの**を中心にピックアップしています。
+今回はリリースノートの構成や書き方に注目するというテーマのもと、フロントエンド分野で広く使われている次の4つのプロジェクトをピックアップしました。
+
+- **React**
+- **Remix**
+- **React Router**
+- **Next.js**
+
+他にも気になるプロジェクトは多くあるのですが、記事の内容やボリュームを踏まえ、まずはこの4つに絞って紹介することにしました。
+
+今後のシリーズでは、他の領域や用途のプロジェクトも順次取り上げていく予定です。
 
 ## 調査方法
 

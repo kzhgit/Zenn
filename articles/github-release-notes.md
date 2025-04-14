@@ -3,7 +3,7 @@ title: "React・Remix・Next.jsから学ぶGitHub Releasesの整理術"
 emoji: "🔮"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["github", "githubactions", "oss"]
-published: false
+published: true
 publication_name: "medirom_tech"
 ---
 

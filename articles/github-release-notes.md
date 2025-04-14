@@ -4,6 +4,7 @@ emoji: "🔮"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["github", "githubactions", "oss"]
 published: false
+publication_name: "medirom_tech"
 ---
 
 # はじめに
@@ -84,7 +85,7 @@ GitHub Actionsを使ったリリースの自動化についても気になると
 ## React
 
 ![ReactのGitHub Releases](/images/github-release-notes/react_github.png)
-*直近のGitHub Releases*
+*[ReactのGitHub Releases](https://github.com/facebook/react/releases)*
 
 ### 構成の特徴
 
@@ -141,11 +142,13 @@ Reactでは、リリース情報を以下の3つの情報源に分けて提供�
 
 RemixとReact Routerは、同じ開発チームによってメンテナンスされていることもあり、リリースノートの構成やスタイルにも一貫性がありました。そのため、このパートでは2つまとめて紹介します。
 
+
 ![RemixのGitHub Releases](/images/github-release-notes/remix_github.png)
-*RemixのGitHub Releases*
+*[RemixのGitHub Releases](https://github.com/remix-run/remix/releases)*
+
 
 ![React RouterのGitHub Releases](/images/github-release-notes/react_router_github.png)
-*React RouterのGitHub Releases*
+*[React RouterのGitHub Releases](https://github.com/remix-run/react-router/releases)*
 
 ### 構成の特徴
 
@@ -185,11 +188,11 @@ Reactのように情報源が複数に分かれているスタイルとはまた
 ## Next.js
 
 ![Next.jsのGitHub Releases](/images/github-release-notes/next_github.png)
-*Next.jsのGitHub Releases（直近のv15.3.0は非常に長いため、ここではcanaryの例を掲載しています）*
+*[Next.jsのGitHub Releases](https://github.com/vercel/next.js/releases)（直近のv15.3.0は非常に長いため、ここではcanaryの例を掲載しています）*
 
 ### 構成の特徴
 
-Next.jsのリリース情報は、GitHub Releasesが主要な発信源となっており、全体をまとめたCHANGELOG.mdは存在していません。
+Next.jsのリリース情報は、**GitHub Releasesが主要な発信源となっており、全体をまとめたCHANGELOG.mdは存在していません。**
 
 各リリースでは、以下のようなカテゴリごとに変更内容がまとめられています。
 
@@ -274,7 +277,7 @@ GitHub Releasesは便利な機能ですが、「どう書くか？」はプロ�
 - 今回取り上げたプロジェクトのGitHub Actions活用編（リリースノートの自動作成など）
 - 新たなプロジェクトのリリーススタイルの紹介
 
-本記事が参考になりましたら、「いいね」やフォローいただけると嬉しいです！
+本記事が参考になりましたら、いいねやフォローいただけると嬉しいです！
 
 ---
 

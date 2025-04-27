@@ -1,6 +1,6 @@
 ---
-title: "React Hook Formで「どちらか一方の入力を必須」にしたいときはdepsが便利"
-emoji: "⛓️"
+title: "React Hook Formで「どちらか一方が必須」なフォームの再評価はdepsが便利"
+emoji: "🔗"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["reacthookform", "javascript", "typescript", "react", "zod"]
 published: false
@@ -8,24 +8,29 @@ published: false
 
 # はじめに
 
-フォームで「メールアドレスか電話番号のどちらかは必須」のようなバリデーションを実装したいとき、React Hook Formでは `deps` という便利なオプションがあります。
+フォームで「メールアドレスか電話番号のどちらかは必須」としたい場面があるとします。  
+しかし実装してみると、片方を入力してももう片方のエラーが残ってしまうなど、思ったように動かず苦戦することがあります。
 
-今回は、この `deps` の使い方を解説し、シンプルで分かりやすいバリデーションの実装方法を紹介します。
+![depsなし](/images/react-hook-form-deps/without-deps.gif)
+
+こうした「どちらか一方を満たせばOK」というバリデーションは、**`deps` オプションを活用すると、スムーズに実現できます**。
 
 # depsとは？
 
-`deps` はdependencies（依存関係）の略で、あるフィールドが他のフィールドの値に依存してバリデーションを再評価したいときに使います。
+deps は dependencies（依存関係）の略で、あるフィールドが他のフィールドの値に依存してバリデーションを再評価するための仕組みです。
 
 具体的には、
 
-- 電話番号を入力したら、メールアドレス側のエラーが消える
-- メールアドレスを入力したら、電話番号側のエラーが消える
+- 電話番号を入力したら、メールアドレス側のエラー（バリデーション？）も再評価される
+- メールアドレスを入力したら、電話番号側のエラーも再評価される
 
-といったことを簡単に実現できます。
+といった動作を簡単に実現できます。
+
+https://react-hook-form.com/docs/useform/register#:~:text=remount%20and%20reorder.-,deps,-string%20%7C%20string%5B%5D
 
 # 実際のコード例
 
-以下が具体的なコード例です。
+以下は Zodで「どちらか一方が必須」のバリデーションルールを定義し、React Hook Formで `deps` を使ってスムーズに再評価を行う例です。
 
 ```tsx
 import { useForm } from 'react-hook-form';
@@ -34,7 +39,7 @@ import { z } from 'zod';
 
 const schema = z
   .object({
-    email: z.string().email().optional(),
+    email: z.string().optional(),
     phone: z.string().optional(),
   })
   .superRefine((data, ctx) => {
@@ -75,13 +80,33 @@ const FormComponent = () => {
 };
 ```
 
+こうすることで、片方を入力するともう片方のバリデーションが再評価されます。
+
+![depsあり](/images/react-hook-form-deps/with-deps.gif)
+
 # watch + triggerとの違い
 
-今までの方法だと `watch` と `useEffect` と `trigger` を使って実装していましたが、`deps` を使うとシンプルに書けます。
+従来の方法では、watch と useEffect と trigger を使って再評価を行っていました。
+
+```tsx
+const email = watch('email');
+const phone = watch('phone');
+
+useEffect(() => {
+  trigger(['email', 'phone']);
+}, [email, phone, trigger]);
+```
+
+しかし、deps を使えばシンプルになります。
+
+```tsx
+<input {...register('email', { deps: ['phone'] })} />
+```
+
 
 - `deps`: シンプルで直感的に書ける（バリデーションのみの場合おすすめ）
 - `watch + trigger`: 複雑なロジックやUIの制御がある場合におすすめ
 
-# まとめ
+# おわりに
 
-フォームの相互依存バリデーションはReact Hook Formの `deps` を使うと簡単に実装できます。どちらか一方を必須にしたいときは、ぜひ試してみてください。
+フォームの相互依存バリデーションは、React Hook Formの deps を使うと簡単で快適になります。バリデーション再評価で困ったらぜひ試してみてください。

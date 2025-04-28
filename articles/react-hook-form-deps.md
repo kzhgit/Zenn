@@ -3,7 +3,7 @@ title: "React Hook Formで「どちらか一方が必須」なフォームの再
 emoji: "🔗"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["reacthookform", "javascript", "typescript", "react", "zod"]
-published: false
+published: true
 ---
 
 # はじめに
@@ -34,7 +34,6 @@ https://react-hook-form.com/docs/useform/register#:~:text=remount%20and%20reorde
 > deps:
 string | string[]	
 Validation will be triggered for the dependent inputs,it only limited to register api not trigger.
-
 
 # 実際のコード例
 

@@ -25,7 +25,7 @@ https://github.com/firstcontributions/first-contributions
 
 このリポジトリは、初心者がオープンソースプロジェクトに貢献する方法を簡単に学ぶことを目的としています。
 現時点（2024/01/07）で、Fork 数が**70.3k**と非常に人気なのが分かりますね。
-各言語の README が用意されており、もちろん[日本語🇯🇵](https://github.com/firstcontributions/first-contributions/blob/main/translations/README.ja.md)での説明もあります。
+各言語の README が用意されており、もちろん[日本語🇯🇵](https://github.com/firstcontributions/first-contributions/blob/main/docs/translations/README.ja.md)での説明もあります。
 
 では、実際に README の手順に沿ってやってみましょう。
 :::message

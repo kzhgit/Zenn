@@ -4,6 +4,7 @@ emoji: "🔗"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["reacthookform", "javascript", "typescript", "react", "zod"]
 published: true
+publication_name: "medirom_tech"
 ---
 
 # はじめに

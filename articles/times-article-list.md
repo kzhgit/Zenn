@@ -167,7 +167,7 @@ https://syu-m-5151.hatenablog.com/entry/2025/05/21/122752
 ## 🛠️ 技術リソース
 
 https://techblog.lycorp.co.jp/ja/20250708b  
- LYCorp技術ブログ CSS技術仕様
+ LYCorp 技術ブログ CSS 技術仕様
 
 ---
 
@@ -180,3 +180,9 @@ https://techblog.lycorp.co.jp/ja/20250708b
 同じような経験年数の方や、これから成長していきたい方にとって、何かしら参考になる記事があれば嬉しいです。
 
 また、これらの記事を書いてくださった皆さんに感謝しています。
+
+# 追加したい記事
+
+https://open.spotify.com/episode/3W4uvNSVe8yYpx33FyXneJ?si=ezb8ULMQR86eE903yMDqlA&nd=1&dlsi=08646c5228d64206
+PR の粒度をどうするかに関しての答えだと思う →「リリースノートを作る気持ちになってごらん」
+

@@ -186,3 +186,6 @@ https://techblog.lycorp.co.jp/ja/20250708b
 https://open.spotify.com/episode/3W4uvNSVe8yYpx33FyXneJ?si=ezb8ULMQR86eE903yMDqlA&nd=1&dlsi=08646c5228d64206
 PR の粒度をどうするかに関しての答えだと思う →「リリースノートを作る気持ちになってごらん」
 
+https://www.youtube.com/watch?v=qCSHVD5Sl18
+https://pivotmedia.co.jp/movie/12340
+前編の「挑戦をやめて実験に変える」は座右の銘にしていいくらい良い言葉だと思う

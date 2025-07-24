@@ -3,7 +3,7 @@ title: "Warpで日本語入力できない？旧バージョン導入で一時�
 emoji: "🍺"
 type: "tech"
 topics: ["warp", "homebrew", "terminal", "ime", "oss"]
-published: false
+published: true
 ---
 
 # はじめに
@@ -16,7 +16,7 @@ published: false
 https://github.com/warpdotdev/Warp/issues/6886
 https://github.com/warpdotdev/Warp/issues/6891
 
-どうやら日本語だけでなく、中国語や韓国語でも同様の問題が発生しているようです。いずれの報告も 2025年7月 と最近のもので、まだ修正には至っていません。
+どうやら日本語だけでなく、中国語や韓国語でも同様の問題が発生しているようです。いずれの報告もここ数日と最近のもので、まだ修正には至っていません。
 
 タイミング的に「直近のアップデートが原因かもしれない」と考え、過去のバージョンをインストールできないか調べてみることにしました。
 

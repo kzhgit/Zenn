@@ -6,6 +6,11 @@ topics: ["warp", "homebrew", "terminal", "ime", "oss"]
 published: true
 ---
 
+:::message
+**追記 (2025年7月28日)：**
+最新バージョン[v0.2025.07.23.08.12.stable_02](https://docs.warp.dev/getting-started/changelog#id-2025.07.23-v0.2025.07.23.08.12)にて日本語入力の問題が修正されました。現在この問題でお困りの方は、Warpのアップデートをお試しください。
+:::
+
 # はじめに
 
 私は普段から [Warp](https://www.warp.dev/) を愛用しているのですが、最近、日本語入力ができなくなってしまいました。

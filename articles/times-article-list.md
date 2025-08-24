@@ -16,12 +16,29 @@ published: false
 そこで、**自分の振り返り**と**これからエンジニアとして歩む方への参考**の両方を兼ねて、記事をまとめることにしました。  
 実際には「後輩への置き土産」としての意味合いもありますが、同じくらいの経験年数の方やこれから学んでいく方にも届けば嬉しいです。
 
-技術的なTipsというよりは、**思考やマインドに残る記事**が中心になります。
+技術的なTipsというよりは、**思考やマインド系の記事**が中心になります。
+
+## 🌟 とくにオススメ
+
+https://speakerdeck.com/naoya/20230227-engineer-type-talk
+https://b.log456.com/entry/20120110/p1
+自分を過信しないこと、継続した学習の大切さを教えてくれる。
+
+---
+
+https://konifar-zatsu.hatenadiary.jp/entry/2024/10/16/180806
+本当にその通りだと感じる内容。こにふぁーさんの記事はどれも良い。
+
+---
+
+https://fukabori.fm/episode/102
+t-wadaさんが「認知負荷」について語っている回。  
+言語化力が圧倒的で、とにかく聴いてほしい。
 
 ## 📚 研修系
 
 https://speakerdeck.com/kotomin_m/ensiniaji-chu-2024nian-du-ensiniaxin-zu-yan-xiu-8571fa94-7ebf-44fc-a5cd-302763118aee
-エンジニアとして働くうえでの心構えが網羅的にまとまっている素晴らしいスライド。
+エンジニアとして働くうえでの心構えが網羅的にまとまっているスライド。
 
 ---
 
@@ -36,53 +53,42 @@ https://speakerdeck.com/sakito/jin-hou-nokiyariahasu-toumiao-ku-20dai-wozhen-rif
 ---
 
 https://syu-m-5151.hatenablog.com/entry/2025/05/21/122752
-AI 時代のキャリア戦略についてまとまっている。
+AI時代のキャリア戦略についてまとまっている。
 
 ## 🤝 チーム・組織
+
+https://speakerdeck.com/rockymanobi/xin-ru-she-yuan-nozhou-inojie-kifang
+初めて後輩のオンボーディングを任されたときに何度も読み返した記事。
+
+---
 
 https://note.com/yfujita/n/n07a72b1c68d4
 バリューは行動規範になるものが良いという話。
 
----
-
-https://speakerdeck.com/rockymanobi/xin-ru-she-yuan-nozhou-inojie-kifang
-初めて後輩のオンボーディングを任されたときに何度も読み返した記事。本当に素晴らしい内容。
-
 ## 🌱 思考・マインド系
 
-https://speakerdeck.com/naoya/20230227-engineer-type-talk
-https://b.log456.com/entry/20120110/p1
-自分を過信しないこと、継続した学習の大切さを教えてくれる。
-
----
-
 https://speakerdeck.com/mosa_siru/ben-qi-depurodakutonixiang-kihe-uctoninarutamenibi-yao-nashi-ji-yu-ji-2024chun
-場当たり型なキャリア（計画的偶発性理論）の存在を知ることができて良かった。
+場当たり型なキャリア（計画的偶発性理論）の存在を知れたのが良かった。前半のプロダクトの価値の話も印象に残っている。
 
 ---
 
 https://speakerdeck.com/soudai/grow-one-day-each-day
-惰性で日報を書くのはもったいないと思えるようになる。
+惰性で日報を書くのはもったいないと感じるようになった。
 
 ---
 
 https://sizu.me/catnose/posts/tozkezd8kwnn
-若手は若さをもっと武器として考えたほうがいいと感じた。
+若手はもっと「若さ＝武器」と考えたほうが良いと感じた。
 
 ---
 
 https://sizu.me/ymdkit/posts/uw2e8m1s7ikf
-個人的にテキストコミュニケーションは可能な限り相手に認知負荷を与えないことを意識しています。本記事も共感できる点がたくさんありました。
+日々のやりとりにおいて意識しておきたい点。
 
 ---
 
 https://konifar-zatsu.hatenadiary.jp/entry/2024/10/28/193217
-わかりやすくてシンプル。こにふぁーさんの記事はどれも良い。
-
----
-
-https://konifar-zatsu.hatenadiary.jp/entry/2024/10/16/180806
-本当にその通りだと感じる内容。
+わかりやすくてシンプル。
 
 ---
 
@@ -97,27 +103,22 @@ https://speakerdeck.com/happy_imafuku/thoughts-and-actions-of-super-engineers-as
 ---
 
 https://speakerdeck.com/mu_zaru/xu-nidong-kitakunarupuroguramanosi-xiang-number-qiitaconference
-個人的には一緒に働きたいと言ってもらうことを目指したい。
+一緒に働きたいと言ってもらえるようなエンジニアを目指したいと思わせてくれる。
 
 ---
 
 https://techblog.cartaholdings.co.jp/entry/will-emergence-aI-eliminate-jobs-web-engineers
-AI の進化を恐怖ではなく、前向きにとらえるスタンスでありたい。
-
-## その他
-
-https://fukabori.fm/episode/102
-t-wadaさんが「認知負荷」について語っている回。言語化力が素晴らしく、とにかく聴いてほしい。
+愚直な学習とAIの進化を前向きにとらえるスタンスが大切。
 
 ---
 
 https://syu-m-5151.hatenablog.com/entry/2025/03/31/034420
-なにか書きたいならとりあえず読むと良い記事。
+なにか書きたいならまず読むと良い記事。
 
 ---
 
 https://jinjor-labo.hatenablog.com/entry/2024/05/27/031343
-個人的に共感できる記事。
+強い人は最初から90点を取るという話。
 
 # おわりに
 

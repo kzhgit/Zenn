@@ -1,10 +1,9 @@
 ---
-title: 'ドキュメント修正からはじめるOSSコントリビュート'
+title: 'ドキュメント修正からはじめるOSSコントリビュート【Expo編】'
 emoji: '🔰'
 type: 'tech' # tech: 技術記事 / idea: アイデア
 topics: ['oss', 'expo', 'zennfes2025free']
 published: true
-published_at: 2025-10-07 11:30
 ---
 
 # はじめに
